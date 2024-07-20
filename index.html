@@ -1,0 +1,390 @@
+<meta charset="UTF-8" />        <meta content="ie=edge" http-equiv="X-UA-Compatible" />        <title>Organizadores de Rondas - Postagem de Testes</title>          <link href="https://www.habbo.com.br/habbo-imaging/badge/b09024s43131s50134s17113s171156ce0e38b73dfada6ba2b3f411d65e69b.gif" rel="icon" />        <link href="css.css" rel="stylesheet" />        <meta content="width=device-width, initial-scales=1.0" name="viewport" />         <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ad5400, #e86300);
+}
+.container{
+    max-width: 1100px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.container .tittle{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+.container .tittle::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #ad5400, #e86300);
+}
+.container form .details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+.container select{
+    height: 45px;
+    width: 100%;
+    padding-left: 15px;
+    font-size: 16px;
+    border: 1px solid #9ca19d;
+    transition: all 0.3s ease;
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding-right: 45px;
+}
+form .details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+.details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #9ca19d;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.details .input-box input:focus,
+.details .input-box input:valid{
+    border-color: #4b4d4b;
+}
+.details .input-box .details_span{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+form .button{
+    height: 45px;
+    margin: 25px 0;
+    width: 100%;
+}
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(135deg, #ad5400, #e86300);
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+form .button input:hover{
+    background: linear-gradient(135deg, #e86300, #ad5400);
+}
+@media (max-width: 584px){
+    .container{
+        max-width: 100%;
+    }
+    form .details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .container form .details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .details::-webkit-scrollbar{
+        width: 100%;
+    }
+}
+.container .card{
+    display: none;
+}
+         </style>         
+<div class="container">
+	        
+	<div class="tittle">
+		Subcompanhia dos Organizadores de Rondas - Testes de Admissão
+	</div>
+	        <select style="margin-top: 15px; width: 100%;" id="select_options">
+                <option selected="" disabled="" value="">Selecione o requerimento desejado</option>
+                <option value="postagem_testes">Postagem de Testes</option>
+                <option value="justificativa">Justificativa de Meta</option>
+            </select>         
+	<div id="postagem_testes" class="card">
+		            
+		<div class="tittle">
+			Postagem de Testes
+		</div>
+		            
+		<form onsubmit=" return fill_teste(event)" action="#" id="postagem_testes_forms">
+			                
+			<div class="details">
+				                    <input style="display: none;" value="-" id="horario_envio_teste" name="horario_envio_teste" type="text" />                    
+				<div class="input-box">
+					                        <span class="details_span">Início da Aplicação</span>                        <input required="" type="text" class="data_hour" name="inicio_aplicação" id="inicio_aplicação" />                                        
+				</div>
+				                    
+				<div class="input-box">
+					                        <span class="details_span">Nickname do Aplicador</span>                        <input required="" placeholder="Nickname do aplicador que aplicou o teste" type="text" name="nickname_aplicador" id="nickname_aplicador" />                                        
+				</div>
+				                    
+				<div class="input-box">
+					                        <span class="details_span">Policiais Presentes</span>                        <input required="" placeholder="Nickname dos policiais presentes. Separe com ' / '" type="text" name="nickname_pres" id="nickname_pres" />                                        
+				</div>
+				                    
+				<div class="input-box">
+					                        <span class="details_span">Policiais Aprovados</span>                        <input required="" placeholder="Nickname dos policiais aprovados. Separe com ' / '" type="text" name="nickname_aprov" id="nickname_aprov" />                                        
+				</div>
+				                    
+				<div class="input-box">
+					                        <span class="details_span">Comentários Adicionais</span>                        <input required="" placeholder="Comentários sobre a aplicação, se necessário" type="text" name="comentarios" id="comentarios" value="-x-" />                                        
+				</div>
+				                    
+				<div class="input-box">
+					                        <span class="details_span">Adição em Subfórum ou Emblema</span>                        <select id="necessidade_novos" name="necessidade_novos">                          
+                            <option selected="" disabled="" value="">Selecione a necessidade dos aprovados</option>
+                            <option value="1">Necessário adicionar apenas no subfórum</option>
+                            <option value="2">Necessário adicionar apenas no emblema</option>
+                            <option value="3">Necessário adicionar em ambos</option>
+                            <option value="4">Já adicionados em ambos</option>
+                            <option value="5">Não houveram aprovados no teste</option>
+                        </select>                    
+				</div>
+				                    
+				<div id="enviar_teste" class="button">
+					                        <input value="Enviar" type="submit" />                    
+				</div>
+				                    
+				<div id="enviar_teste_dis" style="display: none;" class="button">
+					                        <input disabled="" value="Enviando...Aguarde!" type="submit" />                    
+				</div>
+				                
+			</div>
+			            
+		</form>
+		        
+	</div>
+	         
+	<div id="justificativa" class="card">
+		            
+		<div class="tittle">
+			Justificativa de Meta
+		</div>
+		            
+		<form onsubmit="return fill_justif(event)" action="#" id="pedido_justif">
+			                
+			<div class="details">
+				                    <input style="display: none;" value="-" id="horario_envio_just" name="horario_envio_just" type="text" />                    
+				<div class="input-box">
+					                        <span class="details_span">Nickname do Membro</span>                        <input required="" placeholder="Nickname do membro responsável pela postagem" type="text" id="nickname_just" name="nickname_just" />                                        
+				</div>
+				                    
+				<div class="input-box">
+					                        <span class="details_span">Período de Referência</span>                        <input required="" placeholder="Período da meta justifiicada" type="number" name="periodo_justif" id="periodo_justif" />                                        
+				</div>
+				                           
+				<div class="input-box">
+					                        <span class="details_span">Motivo</span>                        <input required="" placeholder="Motivo da justificativa" type="text" name="motivo_justif" id="motivo_justif" />                                        
+				</div>
+              
+				<div id="enviar_justificativa" class="button">
+					                        <input value="Enviar" type="submit" />                    
+				</div>
+				                    
+				<div id="enviar_justificativa_dis" style="display: none;" class="button">
+					                        <input disabled="" value="Enviando...Aguarde!" type="submit" />                    
+				</div>
+				                
+			</div>
+			            
+		</form>
+		        
+	</div>
+	    
+</div><textarea id="fa-generated-message" style="display: none;"></textarea>       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><script>
+function fill_teste(e){
+    e.preventDefault();
+    var isValid = true;
+    if($("#necessidade_novos").val() == null){isValid = false};
+    isValid = $("#inicio_aplicação").val() != "" && $("#nickname_aplicador").val() != "" && $("#nickname_aprov").val() != "" && $("#comentarios").val() != "";
+
+    // SE VALIDAÇÃO É VERIFICADA:
+    if(isValid == true){
+        document.getElementById('enviar_teste').style.display = 'none';
+        document.getElementById('enviar_teste_dis').style.display = 'flex';
+        document.getElementById('horario_envio_teste').value = retorna_horario();
+
+        if(document.getElementById('necessidade_novos').value == 1){var necessidade = ""[b]✕[/b] Policiais precisam ser adicionados no subfórum."}
+        if(document.getElementById('necessidade_novos').value == 2){var necessidade = "[b]✕[/b] Policiais precisam ser adicionados no emblema."}
+        if(document.getElementById('necessidade_novos').value == 3){var necessidade = "[b]✕[/b] Policiais precisam ser adicionados no subfórum e no emblema."}
+        if(document.getElementById('necessidade_novos').value == 4){var necessidade = "[b]✓[/b] Policiais já adicionados no emblema e subfórum."}
+         
+        // MENSAGEM NO FÓRUM
+        if(parseInt($("#necessidade_novos").val()) == 5){$("#nickname_aprov").val('-x-')}
+        else{
+            var horario = new Date();
+                horario.setMinutes(horario.getMinutes() + horario.getTimezoneOffset() - 180);
+            var data_hoje = horario.getDate();
+                if(data_hoje<10){data_hoje = '0' + data_hoje};
+            const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul","Ago","Set","Out","Nov","Dez"];
+            var mes_hoje = meses[horario.getMonth()];
+            var ano_hoje = horario.getFullYear();
+                
+            var aprovados_teste = document.getElementById('nickname_aprov').value.split('/');
+            var lista = '';
+            aprovados_teste.forEach(function(nickname){
+                nickname.replace(' ','');
+                lista = lista + "\n • [b]" + nickname + "[/b] - " + data_hoje + " " + mes_hoje + " " + ano_hoje;
+            });
+            var texto = 
+                "[font=Lexend Deca][size=15][color=#e86300][b]ENTRADA NA SUBCOMPANHIA[/b][/color][/size]\n" + lista + "\n\n" + necessidade + "[/font]";
+            document.getElementById('fa-generated-message').value = texto;
+        };
+        // POSTAGEM NA PLANILHA
+        var form = document.getElementById("postagem_testes_forms");
+        var link_url = 'https://script.google.com/macros/s/AKfycbz-N_MCw3SZbEAW0Dl90JEhyqIA4pl7uegRrLNBZTdvqSsnDQI9n5BMghfcwdZK0cMEYA/exec';
+        
+        fetch(link_url, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Resposta enviada para a planilha!'))
+            .catch(error => alert('Resposta não enviada para a planilha. Contate um membro do ministério!'));
+    }
+    // SE VALIDAÇÃO NÃO É VERIFICADA:
+    else{
+        alert('Preencha todos os campos!')
+    };
+
+    return isValid;
+}
+
+function fill_justif(e){
+    e.preventDefault();
+    var isValid = true;
+    if($("#motivo_justif").val() == null){isValid = false};
+    $("#pedido_justif").find("input").each(function(){
+        if($(this).val() == ""){isValid = false};
+    })
+
+    // SE VALIDAÇÃO É VERIFICADA:
+    if(isValid == true){
+        document.getElementById('enviar_justificativa').style.display = 'none';
+        document.getElementById('enviar_justificativa_dis').style.display = 'flex';
+        document.getElementById('horario_envio_just').value = retorna_horario();
+        
+        var form2 = document.getElementById("justificativa");
+        var link_url2 = 'https://script.google.com/macros/s/AKfycbz-N_MCw3SZbEAW0Dl90JEhyqIA4pl7uegRrLNBZTdvqSsnDQI9n5BMghfcwdZK0cMEYA/exec';
+        
+        fetch(link_url2, { method: 'POST', body: new FormData(form2)})
+            .then(response => alert('Resposta enviada para a planilha!'))
+            .catch(error => alert('Resposta não enviada para a planilha. Contate um membro do ministério!'));
+        location.href = 'https://docs.google.com/spreadsheets/d/1bQRPyzh1tRF80-0xu3CeUupjvy_JLcdUf996uZ1ctBk/edit?gid=0#gid=0';
+    }
+    // SE VALIDAÇÃO NÃO É VERIFICADA:
+    else{
+        alert('Preencha todos os campos!');
+    };
+    
+    return isValid;
+}
+</script> <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script type="text/javascript" src="https://forumeiros.github.io/assets/src/form-generator/form-replace.js"></script> <script type="text/javascript">  // POSTAGEM NO FÓRUM
+function retorna_horario(){
+    var horario = new Date();
+        horario.setMinutes(horario.getMinutes() + horario.getTimezoneOffset() - 180);
+    var data_hoje = horario.getDate();
+        if(data_hoje<10){data_hoje = '0' + data_hoje};
+    const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul","Ago","Set","Out","Nov","Dez"];
+    var mes_hoje = meses[horario.getMonth()];
+    var ano_hoje = horario.getFullYear();
+    var horario_hoje = horario.getHours();
+        if(horario_hoje<10){horario_hoje = '0' + horario_hoje};
+    var minutos_hoje = horario.getMinutes();
+        if(minutos_hoje<10){minutos_hoje = '0' + minutos_hoje};
+    var segundos_hoje = horario.getMinutes();
+        if(segundos_hoje<10){segundos_hoje = '0' + segundos_hoje};
+    var retornar = data_hoje + ' ' + mes_hoje + ' ' + ano_hoje + ' ' + horario_hoje + ':' + minutos_hoje + ':' + segundos_hoje;
+
+    return retornar;
+}
+   
+    (function ($) {
+    	'use strict';
+    	$(window).on('load', function () {
+            $('#inicio_aplicação').val(retorna_horario());
+    		$('form').on('submit', function (event) {
+         event.preventDefault();
+         $(this).find('button[type="submit"]').text('Postando...');
+         if($('#fa-generated-message').val() != ''){
+             if($("#select_options").val() == 'justificativa'){var forum_id = '31847'};
+             if($("#select_options").val() == 'postagem_testes'){var forum_id = '31847';
+
+                setTimeout(function () {
+                        $.post('/post', {
+                            t: forum_id,
+                            message: $('#fa-generated-message').val().trim(),
+                            mode: 'reply',
+                            tid: $('[name="tid"]:first').val(),
+                            post: 1,
+                        }).done(function () {
+                            console.log('Postado com sucesso. Você será redirecionado para o tópico...');
+                            window.open('https://docs.google.com/spreadsheets/d/1bQRPyzh1tRF80-0xu3CeUupjvy_JLcdUf996uZ1ctBk/edit?gid=0#gid=0')
+                            location.href = 'http://' + location.host + '/t' + forum_id + '-?view=newest';
+                        }).fail(function () {
+                            alert('Houve um erro! Tente novamente!');
+                        });
+                }, 600);
+            }
+        }
+        else if($("#select_options").val() == 'postagem_testes'){location.href = 'https://docs.google.com/spreadsheets/d/1bQRPyzh1tRF80-0xu3CeUupjvy_JLcdUf996uZ1ctBk/edit?gid=0#gid=0'}
+        else{}
+
+    		});
+    	});
+    }(jQuery));
+</script> <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> <script> // MÁSCARA DE DATA E HORA
+    $(document).ready(function(){
+        $.jMaskGlobals = {translation: {
+            'D': {pattern: /[0-3]/},
+            'H': {pattern: /[0-2]/},
+            'M': {pattern: /[0-5]/},
+            'Y': {pattern: /[0-9]/},
+            'A': {pattern: /[A-Z]/},
+            'a': {pattern: /[a-z]/}
+        }}
+        $('.data_hour').mask('DY Aaa YYYY HY:MY', {placeholder: 'Preencha seguindo o modelo: 17 Jul 2024 02:40'});
+        });
+</script> <script> // PREENCHIMENTO COM BASE NO LINK
+    $(document).ready(function () {
+        atualizarURL ()
+    });
+
+function atualizarURL(){
+    const urlParams = new URLSearchParams(window.location.search).forEach(function(x,y){
+        $("#" + y).val(x).change();
+    });    
+}
+
+$(function(){
+    $('#select_options').on('change',function(){
+        $(".card").hide();
+        $("#" + $(this).val()).show();
+	}).change();
+})
+
+</script>
+
